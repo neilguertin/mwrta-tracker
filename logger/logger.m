@@ -4,7 +4,8 @@ datetimefmt = 'yyyy-MM-dd''T''HH:mm:ss';
 datefmt = 'yyyy-MM-dd';
 
 firstDay = datetime('today');
-
+x
+%TODO: if .log file exists, start with these filled.
 curDateTimes = datetime.empty;
 dataDateTimes = datetime.empty;
 routes = string.empty;
@@ -36,7 +37,20 @@ while true
         firstDay = curDay;
     end
     
-    allRows = webread(url);
+    while true
+        try
+            allRows = webread(url);
+            break
+        catch e
+            if strcmp(e.identifier,'MATLAB:webservices:Timeout')
+                fprintf("Lost connection at %s\n",datetime);
+                pause(30)
+            else
+                return
+            end
+        end
+    end
+    
     % TODO: check if I can use ID field
     % TODO: check if I can use ScheduleDelta field
     for i = 1:numel(allRows)
