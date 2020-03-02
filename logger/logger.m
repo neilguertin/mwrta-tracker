@@ -4,7 +4,7 @@ datetimefmt = 'yyyy-MM-dd''T''HH:mm:ss';
 datefmt = 'yyyy-MM-dd';
 
 firstDay = datetime('today');
-x
+
 %TODO: if .log file exists, start with these filled.
 curDateTimes = datetime.empty;
 dataDateTimes = datetime.empty;
