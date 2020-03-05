@@ -1,1 +1,79 @@
-Hello, world
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Neil Guertin">
+        <meta name="description" content="Live tracking for MWRTA buses">
+        <meta name="keywords" content="MWRTA, Tracker, Tracking, Bus, Buses, Live">
+        
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+        
+        <title>MWRTA Tracker</title>
+        <style>
+            body {
+			padding-top: 3.5rem;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">MWRTA Tracker</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Tracker</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Routes</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+                            <a class="dropdown-item" href="#">Route 1</a>
+                            <a class="dropdown-item" href="#">Route 2</a>
+                            <a class="dropdown-item" href="#">Route 3</a>
+                            <a class="dropdown-item" href="#">Route 4N</a>
+                            <a class="dropdown-item" href="#">Route 4S</a>
+                            <a class="dropdown-item" href="#">Route 5</a>
+                            <a class="dropdown-item" href="#">Route 6</a>
+                            <a class="dropdown-item" href="#">Route 7</a>
+                            <a class="dropdown-item" href="#">Route 7C</a>
+                            <a class="dropdown-item" href="#">Route 8</a>
+                            <a class="dropdown-item" href="#">Route 9</a>
+                            <a class="dropdown-item" href="#">Route 10</a>
+                            <a class="dropdown-item" href="#">Route 11</a>
+                            <a class="dropdown-item" href="#">Route 14</a>
+                            <a class="dropdown-item" href="#">Route 15</a>
+                            <a class="dropdown-item" href="#">Route 20 Shuttle</a>
+                            <a class="dropdown-item" href="#">Natick Commuter Shuttle</a>
+                            <a class="dropdown-item" href="#">MathWorks Express Shuttle</a>
+                            <a class="dropdown-item" href="#">Framingham Commuter Shuttle</a>
+                            <a class="dropdown-item" href="#">Boston Scientific Commuter Shuttle</a>
+                            <a class="dropdown-item" href="#">Mass Bay Riverside Shuttle</a>
+                            <a class="dropdown-item" href="#">Mass Bay Campus to Campus Shuttle</a>
+                        </div>
+                    </li>
+                    <!-- TODO -->
+                    <!--<li class="nav-item"><a class="nav-link" href="#">Schedules</a></li>-->
+                    <!--<li class="nav-item"><a class="nav-link" href="#">Maps</a></li>-->
+                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <h1>MWRTA Tracker</h1>
+            <p>This is some text.</p>
+        </div>
+    </body>
+    
+    <footer class="container">
+        &copy; Neil Guertin 2020<br>
+        Not affiliated with MWRTA
+    </footer>
+    
+</html>
