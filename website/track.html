@@ -12,73 +12,74 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
         
-        <title>MWRTA Tracker - About</title>
+		<script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js'></script>
+		<link href='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css' rel='stylesheet' />
+		
+        <title>MWRTA Tracker - Live</title>
         <style>
             body {
 			padding-top: 7rem;
             }
-        </style>
+			footer {
+			padding-top: 7rem;
+            }
+			
+		</style>
         
-    </head>
+	</head>
     <body>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <a class="navbar-brand" href="http://mwrtatracker.com/"">MWRTA Tracker</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </button>
+			</button>
             
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link" href="http://mwrtatracker.com/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="track.html">Tracker</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="track.html">Tracker</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Routes</a></li>
-                    <li class="nav-item active"><a class="nav-link" href="about.html">About</a></li>
-                </ul>
-            </div>
-        </nav>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+				</ul>
+			</div>
+		</nav>
         
-
+		
         
         <div class="container">
-			<div class="row">
-                <div class="col-md-6">
-                    <h1>About MWRTA Tracker</h1>
-					<p>MWRTA Tracker is developed by a third party and is not affiliated with MWRTA.</p>
-					<p></p>
-                </div>
-                <!--
-				<div class="col-md-4">
-                    <img src="https://dummyimage.com/400x250/f00/fff" width=100%>
-                </div>
-				-->
-            </div> 
+			<h1>Live Bus Locations</h1>
+			<div id='map' style='width: 100%; height: 300px;'></div>
+			<script>
+				mapboxgl.accessToken = 'pk.eyJ1Ijoibmd1ZXJ0aW4iLCJhIjoiY2s3ZTVqOWtxMDNrbDNubHVnNDh1MnZmdiJ9.-s1nE349WgT8_D3dTz2B6g';
+				var map = new mapboxgl.Map({
+					container: 'map',
+					style: 'mapbox://styles/mapbox/streets-v11'
+				});
+				
+				var url = 'https://wanderdrone.appspot.com/';
+				map.on('load',function() {
+						window.setInterval(function() {
+							map.getSource('bus').setData(url);
+								}, 5000);
+					map.addSource('bus', { type: 'geojson', data: url });
+					map.addLayer({
+						'id': 'bus',
+						'type': 'symbol',
+						'source': 'bus',
+						'layout': {'icon-image': 'rocket-15'}
+					});
+				});
+			</script>
 			
-			<div class="row">
-                <div class="col-md-6">
-				    <h1>About the author</h1>
-					<p>MWRTA Tracker was created by Neil Guertin. Neil is a quality engineer at MathWorks. He commutes to the MathWorks Apple Hill campus from Boston each day via the Natick Commuter Shuttle and MBTA Commuter Rail, Route 1 and MBTA Green Line, or by bike.</p>
-				</div>
-			</div>
 			
-			<div class="row">
-                <div class="col-md-6">
-				    <h1>MWRTA Resources</h1>
-					<p>MWRTA Tracker is developed and updated by a third party and therefore may be out of date. Always check the <a href="http://mwrta.com/">official website</a> for up to date information.</p>
-					<p>There are a few official trackers that you may find useful:</p>
-					<ul>
-					<li><a href="https://play.google.com/store/apps/details?id=com.mwrta.MWRTACatch">MWRTA Catch App</a></li>
-					<li><a href="http://vc.mwrta.com/fixedroute.html">Official tracker (map-based)</a></li>
-					<li><a href="http://vc.mwrta.com/fixedroutetext.html">Official tracker (text-based)</a></li>
-					</ul>
-				</div>
-			</div>
-
-        </body>
-        
-        <footer class="container">
-            <a href="about.html">About this site</a><br>
-            MWRTA Tracker &copy; Neil Guertin 2020<br>
-            Not affiliated with MWRTA
-        </footer>
-        
-    </html>    
+		</div>
+		
+	</body>
+	
+	<footer class="container">
+		<a href="about.html">About this site</a><br>
+		MWRTA Tracker &copy; Neil Guertin 2020<br>
+		Not affiliated with MWRTA
+	</footer>
+	
+</html>    
